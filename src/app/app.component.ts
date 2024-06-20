@@ -203,4 +203,12 @@ export class AppComponent {
     }
   }
 
+  switchSugarFree(e: any) {
+    this.http.get("https://testologia.ru/cookies" + (e.target.checked?"?sugarfree":""))
+    .subscribe(
+      data => {
+        this.productsData = data as Cookie[];
+      }
+    )
+  }
 }
